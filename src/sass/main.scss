@@ -1,0 +1,474 @@
+@import "smart-grid";
+@include reset();
+
+@font-face {
+   font-family: 'Gotham Rounded';
+   src: url('../../build/fonts/GothamRounded/GothamRounded-Medium.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'GothamRounded-Light';
+   src: url('../../build/fonts/GothamRounded/GothamRounded-Light.otf');
+   font-weight: 200;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Gotham Rounded - Book';
+   src: url('../../build/fonts/GothamRounded/GothamRounded-Book.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Gotham Rounded - Book Italic';
+   src: url('../../build/fonts/GothamRounded/GothamRounded-BookItalic.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Gotham Rounded Bold';
+   src: url('../../build/fonts/GothamRounded/GothamRounded-Bold.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+body {
+   font-family: 'Gotham Rounded';
+   box-sizing: border-box;
+   color: #fff;
+}
+
+a {
+   text-decoration: none;
+   color: #fff;
+}
+
+.container {
+   @include wrapper();
+}
+
+.hvr-grow {
+   display: inline-block;
+   vertical-align: middle;
+   -webkit-transform: perspective(1px) translateZ(0);
+   transform: perspective(1px) translateZ(0);
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -webkit-transition-property: transform;
+   transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+   -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+}
+
+@-webkit-keyframes hvr-back-pulse {
+   50% {
+      background-color: rgba(32, 152, 209, 0.75);
+   }
+}
+
+@keyframes hvr-back-pulse {
+   50% {
+      background-color: rgba(32, 152, 209, 0.75);
+   }
+}
+
+.hvr-back-pulse {
+   display: inline-block;
+   vertical-align: middle;
+   -webkit-transform: perspective(1px) translateZ(0);
+   transform: perspective(1px) translateZ(0);
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   overflow: hidden;
+   -webkit-transition-duration: 0.5s;
+   transition-duration: 0.5s;
+   -webkit-transition-property: color, background-color;
+   transition-property: color, background-color;
+}
+
+.hvr-back-pulse:hover,
+.hvr-back-pulse:focus,
+.hvr-back-pulse:active {
+   -webkit-animation-name: hvr-back-pulse;
+   animation-name: hvr-back-pulse;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+   -webkit-animation-delay: 0.5s;
+   animation-delay: 0.5s;
+   -webkit-animation-timing-function: linear;
+   animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;
+   animation-iteration-count: infinite;
+   background-color: #4acaff;
+   color: white;
+}
+
+.header {
+   background: url('../img/header_bg.jpg') no-repeat center top / cover;
+
+   &-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .logo-block {
+         display: flex;
+         justify-content: center;
+         font-size: 31px;
+
+         &_one {
+            font-family: "Gotham Rounded - Book";
+         }
+
+         &_two {
+            font-weight: 700;
+         }
+
+         &_three {
+            display: block;
+            margin: 0 auto;
+            font-family: "Gotham Rounded - Book";
+            font-size: 12px;
+            letter-spacing: 9.2px;
+         }
+      }
+
+      .nav-block {
+         margin-left: auto;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-items: center;
+         text-transform: uppercase;
+
+         &_item {
+            margin-right: 15px;
+            text-decoration: none;
+
+            &:nth-last-child(1) {
+               margin-right: 0px;
+            }
+         }
+      }
+   }
+
+   &-content {
+      padding: 245px 0px 280px 0px;
+
+      &_title {
+         margin-bottom: 45px;
+         font-family: "Gotham Rounded - Book Italic";
+         font-size: 55px;
+      }
+
+      &_search {
+         @include row-flex();
+         margin-bottom: 29px;
+         flex-wrap: nowrap;
+         justify-content: space-between;
+
+         input {
+            @include col();
+            @include size(10);
+            @include size-xs(12);
+            padding: 10px;
+            min-width: 218px;
+            border-radius: 5px;
+            color: #c7c7c7;
+            border: 0px;
+            border-bottom: 3px solid #e2e2e2;
+            font-family: "Gotham Rounded - Book Italic";
+            font-size: 18px;
+         }
+
+         button {
+            @include col();
+            @include size(2);
+            @include size-xs(12);
+            font-size: 20px;
+            min-width: 110px;
+            font-family: "Gotham Rounded - Book Italic";
+            border-radius: 5px;
+            border: 0px;
+            border-bottom: 3px solid #3baedd;
+            background-color: #4acaff;
+            
+
+            i {
+               margin-right: 5px;
+               font-size: 15px;
+            }
+         }
+      }
+
+      &_checkBlock {
+         @include row-flex();
+         justify-content: space-between;
+
+         .check-block {
+            @include col();
+            display: flex;
+            align-items: flex-end;
+
+            div {
+               font-family: "Gotham Rounded - Book Italic";
+               font-size: 13px;
+               display: flex;
+               align-items: center;
+            }
+
+            div:nth-last-child(1) {
+               margin-left: 32px;
+            }
+
+            input {
+               margin: 0px 4px 0px 0px;
+            }
+
+         }
+
+         select {
+            @include col();
+            @include size(3);
+            @include size-xs(12);
+            border-radius: 5px;
+            min-width: 212px;
+            padding: 13px;
+            color: #c7c7c7;
+            font-family: "Gotham Rounded - Book Italic";
+            font-size: 13px;
+
+            option {
+               padding: 10px;
+            }
+
+         }
+
+      }
+
+   }
+}
+
+.leaders {
+   padding: 108px 0px;
+   text-align: center;
+   background-color: #f5f5f5;
+
+   &-block {
+
+      &_title {
+         margin-bottom: 30px;
+         color: #585858;
+         font-family: "Gotham Rounded - Book Italic";
+         font-size: 30px;
+      }
+
+      &_desc1 {
+         position: relative;
+         margin-bottom: 107px;
+         color: #585858;
+         font-family: "Gotham Rounded - Book";
+         font-size: 45px;
+
+
+
+      }
+
+      &_desc1::before {
+         content: '';
+         position: absolute;
+         top: 150%;
+         left: calc(50% - 69px);
+         display: block;
+         background-color: #4acaff;
+         width: 138px;
+         height: 5px;
+      }
+
+      &_desc2 {
+         margin-bottom: 79px;
+         color: #585858;
+         font-family: "Gotham Rounded - Book";
+         font-size: 18px;
+      }
+
+      &_button {
+         padding: 11px;
+         color: #4acaff;
+         font-family: "Gotham Rounded";
+         font-size: 15px;
+         font-weight: 500;
+         text-transform: uppercase;
+         border: 2px solid #4acaff;
+         border-radius: 5px;
+      }
+   }
+}
+
+.subscribe {
+   background-color: #131c25;
+   padding: 180px 0px;
+   text-align: center;
+
+   &-title {
+      margin-bottom: 36px;
+      font-family: "Gotham Rounded - Book";
+      font-size: 18px;
+   }
+
+   &-subscribeBlock {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      max-width: 361px;
+      margin: 0 auto;
+
+      input {
+         color: #ffffff;
+         font-size: 14px;
+         background-color: rgba(62, 44, 44, 0);
+         border: 2px solid #4acaff;
+         padding: 12px;
+         border-radius: 5px;
+         width: 100%;
+      }
+   }
+
+}
+
+.footer {
+   padding: 68px 0px 104px 0px;
+   background-color: #f5f5f5;
+
+   .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+   }
+
+   &-contact {
+      address {
+         display: flex;
+         align-items: center;
+         margin-bottom: 28px;
+
+         i {
+            color: #4acaff;
+            font-size: 20px;
+         }
+
+         a {
+            margin-left: 13px;
+            color: #7a7a7a;
+            font-family: "Gotham Rounded";
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 10px;
+         }
+      }
+
+      small {
+         color: #a6a5a5;
+         font-family: "Gotham Rounded - Book";
+         font-size: 14px;
+
+         span {
+            color: #7a7a7a;
+            font-family: "Gotham Rounded";
+         }
+      }
+   }
+
+   &-icons {
+      align-self: flex-end;
+      margin-left: auto;
+
+      a {
+         color: #4acaff;
+         font-size: 20px;
+      }
+
+   }
+}
+
+textarea:focus,
+input:focus {
+   outline: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:760px) {
+   .nav-block {
+      padding-top: 20px;
+      margin-left: 0px !important;
+   }
+}
+
+@media screen and (max-width:560px) {
+
+   .header-content {
+      &_title {
+         font-size: 11vw;
+      }
+
+      &_search {
+         flex-wrap: wrap;
+
+         button {
+            margin-top: 10px;
+            padding: 9px;
+         }
+      }
+
+      &_checkBlock {
+         margin-bottom: 10px;
+
+         .check-block div:nth-last-child(1) {
+            margin-left: 10px;
+         }
+
+         justify-content: center;
+      }
+
+      .check-block {
+         margin-bottom: 10px;
+
+      }
+   }
+
+}
+
+@media screen and (max-width:500px) {
+   .footer {
+      &-contact {
+         text-align: center;
+
+         address {
+            justify-content: center;
+         }
+
+      }
+
+      &-icons {
+         align-self: flex-end;
+         margin-left: 0px;
+      }
+   }
+
+}
